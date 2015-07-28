@@ -1,0 +1,35 @@
+{
+  "name": "router",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "ip": {
+      "type": "string",
+      "required": true
+    },
+    "name": {
+      "type": "string"
+    },
+    "add_time": {
+      "type": "date",
+      "required": true
+    },
+    "modified_date": {
+      "type": "date",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "user_router_relation": {
+      "type": "hasAndBelongsToMany",
+      "model": "User",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": []
+}

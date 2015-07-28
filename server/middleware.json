@@ -12,17 +12,13 @@
       }
     }
   },
-  "session": {
-  },
-  "auth": {
-  },
-  "parse": {
-  },
-  "routes": {
-  },
+  "session": {},
+  "auth": {},
+  "parse": {},
+  "routes": {},
   "files": {
     "loopback#static": {
-      "params": "$!../static"
+      "params": "$!../client"
     }
   },
   "final": {
