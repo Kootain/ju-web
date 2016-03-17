@@ -1,35 +1,35 @@
 {
-  "name": "router",
+  "name": "Reagent",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "ip": {
+    "name": {
       "type": "string",
       "required": true
     },
-    "name": {
+    "cas": {
+      "type": "string",
+      "required": true
+    },
+    "nameEn": {
       "type": "string"
     },
-    "add_time": {
-      "type": "date",
+    "fzs": {
+      "type": "string",
       "required": true
     },
-    "modified_date": {
-      "type": "date",
-      "required": true
+    "fzl": {
+      "type": "string"
+    },
+    "cd": {
+      "type": "string"
     }
   },
   "validations": [],
-  "relations": {
-    "user_router_relation": {
-      "type": "hasAndBelongsToMany",
-      "model": "User",
-      "foreignKey": ""
-    }
-  },
+  "relations": {},
   "acls": [],
   "methods": {}
 }
