@@ -3,7 +3,9 @@
     "loopback#favicon": {}
   },
   "initial": {
-    "compression": {},
+    "compression": {
+          "enabled":false
+      },
     "cors": {
       "params": {
         "origin": true,
@@ -17,10 +19,10 @@
   "parse": {},
   "routes": {},
   "files": {
-    "loopback#static": [{
-      "params": "$!../client",
-      "paths": "/"
-    }]
+    "loopback#static": {
+      "paths": "/",
+      "params": "$!../client"
+    }
   },
   "final": {
     "loopback#urlNotFound": {}

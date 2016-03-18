@@ -50,7 +50,15 @@
     "public": true
   },
   "Reagent": {
-    "dataSource": "db",
-    "public": true
+    "dataSource": "infoDB",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "Zhengku": {
+    "dataSource": "infoDB",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
   }
 }

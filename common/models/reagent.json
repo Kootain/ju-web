@@ -26,10 +26,19 @@
     },
     "cd": {
       "type": "string"
+    },
+    "zhengKu": {
+      "type": "number"
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "rzhengku": {
+      "type": "belongsTo",
+      "model": "Zhengku",
+      "foreignKey": "zhengku"
+    }
+  },
   "acls": [],
   "methods": {}
 }
