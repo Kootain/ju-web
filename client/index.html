@@ -21,7 +21,15 @@
 	<script src="assets/js/html5shiv.js"></script>
 	<script src="assets/js/respond.min.js"></script>
 	<![endif]-->
+	<script src="asserts/jquery.min.js"></script>
+	<script src="asserts/bootstrap.min.js"></script>
+	<script src="asserts/bootstrap-hover-dropdown.min.js"></script>
+	<script src="asserts/headroom.min.js"></script>
+	<script src="asserts/jQuery.headroom.min.js"></script>
+	<script src="asserts/template.js"></script>
+	<script src="asserts/controller/ku.js"></script>
 </head>
+
 
 <body class="page-home" ryt13728="1">
 
@@ -85,6 +93,67 @@
 		</div>
 	</section>
 	<!-- end of intro-->
+	
+
+	<div class="containr">
+	<div class="row">
+	<div class="wrapper wrapper-content animated fadeInRight">
+	            <div class="col-lg-10 col-lg-offset-1">
+	                <div class="ibox float-e-margins">
+	                    <div class="ibox-title text-center">
+	                        <h2>药品整库</h2>
+	                    </div>
+	                    <div class="ibox-content">
+	                        <div class="row">
+	                            <div class="col-sm-5 m-b-xs"><select id="ku" class="input-md form-control input-s-sm inline">
+	                            </select>
+	                            </div>
+<!-- 	                            <div class="col-sm-4 m-b-xs">
+	                                <div data-toggle="buttons" class="btn-group">
+	                                    <label class="btn btn-sm btn-white"> <input type="radio" id="option1" name="options"> Day </label>
+	                                    <label class="btn btn-sm btn-white active"> <input type="radio" id="option2" name="options"> Week </label>
+	                                    <label class="btn btn-sm btn-white"> <input type="radio" id="option3" name="options"> Month </label>
+	                                </div>
+	                            </div> -->
+	                            <div class="col-sm-3 col-sm-offset-4">
+	                                <div class="input-group"><input type="text" placeholder="Search" class="input-sm form-control"> <span class="input-group-btn">
+	                                    <button type="button" class="btn btn-sm btn-primary"> Go!</button> </span></div>
+	                            </div>
+	                        </div>
+	                        <div class="table-responsive">
+	                            <table class="table table-striped table-bordered table-hover dataTables-example" >
+	                                <thead>
+	                                <tr>
+
+	                                    <th></th>
+	                                    <th>药品名称(中/英)</th>
+	                                    <th>CAS号</th>
+	                                    <th>分子式</th>
+	                                    <th>分子量</th>
+	                                    <th>药品纯度</th>
+	                                    <th>查看详情</th>
+	                                </tr>
+	                                </thead>
+	                                <tbody id="tableBody">
+	                                <tr>
+	                                    <td><input type="checkbox"  checked class="i-checks" name="input[]"></td>
+	                                    <td>复美欣氨基丁三醇</td>
+	                                    <td><span>78964-85-9</span></td>
+	                                    <td>98%</td>
+	                                    <td>C7H18NO7P</td>
+	                                    <td>259.19400</td>
+	                                    <td><a href="http://zh.molbase.com/suppliers/244258-product-37216462/" target="_blank"><i class="fa fa-check text-navy" ></i></a></td>
+	                                </tr>
+	                                </tbody>
+	                            </table>
+	                        </div>
+
+	                    </div>
+	                </div>
+	            </div>
+	            </div>
+	</div>
+	</div>
 
 	<!-- highlights - jumbotron -->
 	<section class="section jumbotron" id="services">
@@ -222,12 +291,6 @@
 	</script>
 
 	<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
-	<script src="asserts/jquery.min.js"></script>
-	<script src="asserts/bootstrap.min.js"></script>
-	<script src="asserts/bootstrap-hover-dropdown.min.js"></script>
-	<script src="asserts/headroom.min.js"></script>
-	<script src="asserts/jQuery.headroom.min.js"></script>
-	<script src="asserts/template.js"></script>
 
 
 </body></html>
