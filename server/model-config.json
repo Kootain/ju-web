@@ -48,5 +48,9 @@
   "team": {
     "dataSource": "infoDB",
     "public": true
+  },
+  "Reagent": {
+    "dataSource": "db",
+    "public": true
   }
 }
