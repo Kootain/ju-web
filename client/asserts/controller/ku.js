@@ -42,7 +42,7 @@ var fillReagent = function(reagents){
   console.log(reagents);
   var item = `
   <tr>
-      <td><input type="checkbox"  checked class="i-checks" name="input[]"></td>
+      <td><input type="checkbox" class="i-checks"></td>
       <td>{name}</td>
       <td><span>{cas}</span></td>
       <td>{cd}</td>
