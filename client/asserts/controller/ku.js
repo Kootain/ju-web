@@ -1,54 +1,62 @@
-$(function(){
-  var baseUrl = 'api/'
-  var getFactory = function(name){
-    var url = baseUrl+name+'s/';
-    return function(id,cb){
-      $.get(url+id||'',cb);
-    }
-  }
-
-  var Zhengku = getFactory('zhengku');
-  var Reagent = getFactory('reagent');
-
-  Reagent('',function(data){
-    console.log(data);
-  });
-  Zhengku('',function(data){
-    console.log(data);
-  });
-
-  var modelFactory = function(name){
-    return {
-      var url = baseUrl+name+'s/';
-      find : function(id,cb){
-        var arg = arguments;
-        var callback = arg.pop();
-        if( ){
-          if(typeof id === 'function'){
-            $.get(url, id);
-          }
+String.prototype.format = function(args) {
+  var result = this;
+  if (arguments.length > 0) {    
+    if (arguments.length == 1 && typeof (args) == "object") {
+      for (var key in args) {
+        if(args[key]!=undefined){
+          var reg = new RegExp("({" + key + "})", "g");
+          result = result.replace(reg, args[key]);
         }
-        $.get(url+id||'', (typeof cb === 'function')?cb,);
+      }
+    }else{
+      for (var i = 0; i < arguments.length; i++) {
+        if (arguments[i] != undefined) {
+          var reg= new RegExp("({)" + i + "(})", "g");
+          result = result.replace(reg, arguments[i]);
+        }
       }
     }
   }
-  
-  var ku = ["抗肿瘤药", "抗菌药", "抗病毒药", "心脑血管用药", "中枢神经系统用药", "呼吸系统用药", "抗变态反应药", "消化系统用药", "泌尿系统用药", "非甾类抗炎药", "抗寄生虫药", "内分泌系统用药", "外周神经系统用药", "免疫系统用药", "营养保健药", "麻醉药", "骨骼及骨骼肌用药", "解毒药", "眼科用药", "畜牧药", "多用途中成药", "皮肤药"];
+  return result;
+}
+
+
+$(function(){
+  var Zhengku = clientFactory('Zhengkus');
+  Zhengku.find().then(fillZhengku).then(getReagent);
+  $('#ku').change(function(){
+    $('#tableBody').empty();
+    getReagent($(this).children('option:selected').val());
+  });
+});
+
+var fillZhengku = function(ku){
   for(var i = 0; i<ku.length; i++){
-    $("#ku").append("<option value='"+ i +"'>"+ ku[i] +"</option>");
+    $("#ku").append("<option value='"+ ku[i].id +"'>"+ ku[i].name +"</option>");
   }
+
+}
+
+var fillReagent = function(reagents){
+  console.log(reagents);
   var item = `
   <tr>
-      <td><input type="checkbox"  checked class="i-checks" name="input[]"></td>
-      <td>复美欣氨基丁三醇</td>
-      <td><span>78964-85-9</span></td>
-      <td>98%</td>
-      <td>C7H18NO7P</td>
-      <td>259.19400</td>
-      <td><a href="http://zh.molbase.com/suppliers/244258-product-37216462/" target="_blank"><i class="fa fa-check text-navy" ></i></a></td>
+      <td><input type="checkbox" class="i-checks"></td>
+      <td>{name}</td>
+      <td><span>{cas}</span></td>
+      <td>{cd}</td>
+      <td>{fzs}</td>
+      <td>{fzl}</td>
+      <td><a href="{href}" target="_blank"><i class="fa fa-check text-navy" ></i></a></td>
   </tr>
   `;
-  for(var i = 0; i<ku.length; i++){
-    $("#tableBody").append(item);
+  for(var i = 0; i<reagents.length; i++){
+    $("#tableBody").append(item.format(reagents[i]));
   }
-});
+}
+
+var getReagent = function(id){
+  id = id||$('#ku').val();
+  var Reagent = clientFactory('Reagents');
+  Reagent.find({where:{zhengku:id}}).then(fillReagent);
+}
