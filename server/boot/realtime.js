@@ -4,6 +4,5 @@ module.exports = function(app) {
   Reagent.createChangeStream(function(err, changes) {
     changes.pipe(es.stringify()).pipe(process.stdout);
   });
-  Reagent.create({name: 'bar'});
 }
 

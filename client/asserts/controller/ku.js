@@ -1,4 +1,38 @@
 $(function(){
+  var baseUrl = 'api/'
+  var getFactory = function(name){
+    var url = baseUrl+name+'s/';
+    return function(id,cb){
+      $.get(url+id||'',cb);
+    }
+  }
+
+  var Zhengku = getFactory('zhengku');
+  var Reagent = getFactory('reagent');
+
+  Reagent('',function(data){
+    console.log(data);
+  });
+  Zhengku('',function(data){
+    console.log(data);
+  });
+
+  var modelFactory = function(name){
+    return {
+      var url = baseUrl+name+'s/';
+      find : function(id,cb){
+        var arg = arguments;
+        var callback = arg.pop();
+        if( ){
+          if(typeof id === 'function'){
+            $.get(url, id);
+          }
+        }
+        $.get(url+id||'', (typeof cb === 'function')?cb,);
+      }
+    }
+  }
+  
   var ku = ["抗肿瘤药", "抗菌药", "抗病毒药", "心脑血管用药", "中枢神经系统用药", "呼吸系统用药", "抗变态反应药", "消化系统用药", "泌尿系统用药", "非甾类抗炎药", "抗寄生虫药", "内分泌系统用药", "外周神经系统用药", "免疫系统用药", "营养保健药", "麻醉药", "骨骼及骨骼肌用药", "解毒药", "眼科用药", "畜牧药", "多用途中成药", "皮肤药"];
   for(var i = 0; i<ku.length; i++){
     $("#ku").append("<option value='"+ i +"'>"+ ku[i] +"</option>");

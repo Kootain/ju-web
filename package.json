@@ -6,10 +6,13 @@
     "pretest": "jshint ."
   },
   "dependencies": {
+    "browserify": "^13.0.0",
     "compression": "^1.0.3",
     "cors": "^2.5.2",
+    "del": "^2.2.0",
     "errorhandler": "^1.1.1",
     "event-stream": "^3.3.2",
+    "gulp-rename": "^1.2.2",
     "loopback": "^2.14.0",
     "loopback-boot": "^2.6.5",
     "loopback-connector-mysql": "*",
